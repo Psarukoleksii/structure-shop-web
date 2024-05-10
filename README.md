@@ -1,46 +1,51 @@
-# Getting Started with Create React App
+# General structure for web-shop
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Folders structure
 
-## Available Scripts
+In general, I suggest to use `MVC` (Model-View-Controller) design pattern in this project. 
 
-In the project directory, you can run:
+`Model`. All our models will be in separate hooks, for example `useProducts`, `useCategories`, `useUsers`, `useCustomers` and so on. And in this hooks will be everything, what is linked with this specific entity.
 
-### `npm start`
+`View` - will be our organisms, which will be responded for showing proper molecule or atom components.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+`Controller` - this functionality will be on page, business logic, calculations, manipulations with data and so on.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## API
 
-### `npm test`
+In API folder I suggest to configure everything what is linked with calls to server side.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Assets
 
-### `npm run build`
+Folder for icons, logo, images etc...
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Components
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Split our components by atoms/molecules/organisms/templates. Atomic architecture for this.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Configs
 
-### `npm run eject`
+Everything what is linked with config: app paths, format time and timezones, acceptable video formats/images and so on.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Hooks
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+General hooks, which will be responded for general things, for example: check out some permissions, private rules, notifications and so on.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Contexts
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Folder for keeping context with cart, permissions and so on
 
-## Learn More
+## Interfaces
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+General interfaces for common usage: pagination data, server error response, file interface... which will be not linked with models
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Models
+
+Our models will be splited by entity: user, product, customers and so on. Everything, which will be linked with this entity - will be in this folder. Mappers, interfaces, utils, configs, enums and so on. Everything, what is linked with manipulations with this data of entity. 
+
+## Pages
+
+Our controllers, on pages will be decide about calls to separate models, manipulations with data and so on.
+
+## Utils
+
+General utils, which be not linked with our models 
